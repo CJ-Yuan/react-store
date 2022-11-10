@@ -16,19 +16,19 @@ export default function BottomNav() {
             <li>
                 <NavLink  to="/life">
                     <i className='iconfont icon-trophy'></i>
-                    生活服务
+                    开发中
                 </NavLink>
             </li>
             <li>
                 <NavLink  to="/shop">
                     <i className='iconfont icon-shop'></i>
-                    商城
+                    开发中
                 </NavLink>
             </li>
             <li>
                 <NavLink  to="/user">
                     <i className='iconfont icon-team'></i>
-                    我的
+                    开发中
                 </NavLink>
             </li>
         </ul>

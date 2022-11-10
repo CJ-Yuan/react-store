@@ -9,7 +9,10 @@ const base = {
     homehot2:"/api/home/hot2",
     search:"/api/search",
     details:"/api/details",
-
+    login:"/api/login",
+    comment:"/api/comment",
+    commentOrder:"/api/order/comment",
+    submitComment:"/api/order/submit/comment",
 }
 
 
@@ -34,6 +37,28 @@ const api = {
     details(params){
         return axios.get(base.baseUrl + base.details,{params})
     },
+    //登录
+    login(params){
+        return axios.post(base.baseUrl + base.login,params)
+    },
+    //商品评价
+    comment(params){
+        return axios.get(base.baseUrl + base.comment,{
+            params
+        })
+    },
+    //订单评价
+    commentOrder(params){
+        return axios.get(base.baseUrl + base.commentOrder,{
+            params
+        })
+    },
+    //提交评价
+    submitComment(params){
+        return axios.post(base.baseUrl + base.submitComment,params)
+    }
+
+
 }
 
 export default api;

@@ -1,3 +1,4 @@
+//这是接收详情页数据的组件，并交给DetailsView进行渲染
 import React,{useState,useEffect}  from 'react'
 import api from '../../../api';
 import DetailsView from '../DetailsView'
@@ -20,7 +21,7 @@ export default function DetailsList(props) {
   return (
     <div>
         {
-            detailsData.imgs ? <DetailsView detailsData={detailsData}/> : <div>等待数据加载...</div>
+            detailsData.imgs ? <DetailsView detailsData={detailsData} id={props.id}/> : <div>等待数据加载...</div>
         }
     </div>
   )

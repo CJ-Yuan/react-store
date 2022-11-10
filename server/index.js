@@ -1,8 +1,13 @@
 const express = require('express');
-// 解决跨域
-const cors = require("cors")
 const app = express();
 const router = require('./roudex')
+const bodyParser = require("body-parser")
+// 解决跨域
+const cors = require("cors")
+
+app.use(bodyParser.urlencoded({
+    extended:true
+}))
 
 app.use(cors())
 

@@ -6,6 +6,12 @@ const url = require("url")
 const Mock = require('mockjs');
 const { Random } = require('mockjs');
 const detailsData = require("./data/details");
+const commentData = require("./data/comment")
+const orderCommentData = require("./data/order")
+
+
+
+
 // 首页热门数据
 
 router.get("/home/hot1",(req,res)=>{
@@ -60,5 +66,52 @@ router.get("/details",(req,res) =>{
     console.log(id);
     res.send(detailsData);
 })
+
+//登录
+router.post("/login",(req,res)=>{
+    const {username,password} = req.body;
+    if(username && password){
+        res.send({
+            status:200,
+            token:"en3245324512sdgfsdf.sdfgdfghwerwer234234234.sdfsdfsdf22",
+            nick:username
+        })
+    } else{
+        res.send({
+            status:400,
+            msg:'用户名/密码错误'
+        })
+    }
+})
+
+//评价数据
+router.get("/comment",(req,res)=>{
+    const id = url.parse(req.url).query.id;
+    res.send({
+        status:200,
+        result:commentData
+    })
+})
+
+//订单评价
+router.get("/order/comment",(req,res)=>{
+    const username = url.parse(req.url,true).query.username;
+    res.send({
+        status:200,
+        result:orderCommentData
+    })
+
+})
+
+//评价
+router.post("/order/submit/comment",(req,res) =>{
+    const { username,id,content } = req.body;
+    console.log(username,id,content);
+    res.send({
+        msg:"评价成功",
+        status:200
+    })
+})
+
 
 module.exports = router;
